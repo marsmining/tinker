@@ -2,10 +2,8 @@ var gulp = require("gulp");
 var less = require("gulp-less");
 var path = require("path");
 
-var lessGlob = "less/*.less";
-
 gulp.task("less", function () {
-    gulp.src(lessGlob)
+    gulp.src("less/*.less")
         .pipe(less({
             paths: [ path.join(__dirname, "less", "includes") ]
         }))
@@ -13,8 +11,10 @@ gulp.task("less", function () {
 });
 
 gulp.task("watch", function () {
-    var watcher = gulp.watch(lessGlob, ["less"]);
+    var watcher = gulp.watch("less/**/*.less", ["less"]);
     watcher.on("change", function(event) {
         console.log("File " + event.path + " was " + event.type + ", running tasks...");
     });
 });
+
+gulp.task("default", ["less"]);
