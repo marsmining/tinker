@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/marsmining/tinker",
   "devDependencies": {
+    "gulp": "^3.8.10",
     "gulp-less": "^1.3.6"
   }
 }
